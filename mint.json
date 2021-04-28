@@ -9,5 +9,10 @@
   ],
   "test-directories": [
     "tests"
-  ]
+  ],
+  "external": {
+    "javascripts": [
+      "js/index.js"
+    ]
+  }
 }

@@ -18,6 +18,7 @@ component Main {
     text-transform: uppercase;
     padding: 6px;
     width: 100px;
+
     &:hover {
       cursor: pointer;
       background: rgba(69, 159, 86, 0.1);
@@ -25,12 +26,27 @@ component Main {
     }
   }
 
+  fun componentDidMount : Promise(Never, Void) {
+    sequence {
+      currentCount =
+        `chromeGetCount()`
+
+      next { counter = currentCount }
+    }
+  }
+
   fun increment {
-    next { counter = counter + 1 }
+    parallel {
+      `chromeSetCount(#{counter + 1})`
+      next { counter = counter + 1 }
+    }
   }
 
   fun decrement {
-    next { counter = counter - 1 }
+    parallel {
+      `chromeSetCount(#{counter - 1})`
+      next { counter = counter - 1 }
+    }
   }
 
   fun render {
