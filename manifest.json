@@ -1,0 +1,12 @@
+{
+  "name": "Mint Chrome Extension Example",
+  "version": "0.0.1",
+  "description": "An example Chrome extension build with Mint",
+  "manifest_version": 3,
+  "icons": {
+    "16": "icon.png"
+  },
+  "action": {
+    "default_popup": "index.html"
+  }
+}
