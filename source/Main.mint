@@ -1,19 +1,51 @@
 component Main {
-  style base {
-    font-family: sans;
-    font-weight: bold;
-    font-size: 50px;
+  state counter = 0
 
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 100vh;
-    width: 100vw;
+  style base {
+    text-align: center;
+    padding: 12px;
   }
 
-  fun render : Html {
+  style counterText {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  style buttonStyle {
+    background: none;
+    border: 1px solid rgba(69, 159, 86, 0.5);
+    border-radius: 4px;
+    text-transform: uppercase;
+    padding: 6px;
+    width: 100px;
+    &:hover {
+      cursor: pointer;
+      background: rgba(69, 159, 86, 0.1);
+      border-color: rgba(69, 159, 85);
+    }
+  }
+
+  fun increment {
+    next { counter = counter + 1 }
+  }
+
+  fun decrement {
+    next { counter = counter - 1 }
+  }
+
+  fun render {
     <div::base>
-      <{ "Hello Mint!" }>
+      <button::buttonStyle onClick={increment}>
+        "Increment"
+      </button>
+
+      <div::counterText>
+        <{ Number.toString(counter) }>
+      </div>
+
+      <button::buttonStyle onClick={decrement}>
+        "Decrement"
+      </button>
     </div>
   }
 }
