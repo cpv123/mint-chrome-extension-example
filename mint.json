@@ -1,0 +1,13 @@
+{
+  "name": "mint-chrome-extension-example",
+  "application": {
+    "head": "assets/head.html",
+    "title": "mint-chrome-extension-example"
+  },
+  "source-directories": [
+    "source"
+  ],
+  "test-directories": [
+    "tests"
+  ]
+}
